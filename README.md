@@ -2,9 +2,12 @@
 
 ## 網站畫面
 ![網站畫面](https://github.com/Ai-Chen-Hsieh/boardGame/blob/main/src/assets/homePage.png)
-![購物車](https://github.com/Ai-Chen-Hsieh/boardGame/blob/main/src/assets/shoppingCart.png)
-![遊戲介紹](https://github.com/Ai-Chen-Hsieh/boardGame/blob/main/src/assets/gameDescripton.png)
 
+![購物車](https://github.com/Ai-Chen-Hsieh/boardGame/blob/main/src/assets/shoppingCart.png)
+
+![遊戲介紹](https://github.com/Ai-Chen-Hsieh/boardGame/blob/main/src/assets/gameDescription.png)
+
+![遊戲介紹](https://github.com/Ai-Chen-Hsieh/boardGame/blob/main/src/assets/footer.png)
 
 ## project發想
 - 喜歡桌遊，所以以桌遊形象為主題的網站，練習以React開發&畫面切版，嘗試自行設計網站UI與簡單功能。
