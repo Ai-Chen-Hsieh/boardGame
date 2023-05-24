@@ -24,7 +24,7 @@ const SubscriptButtonStyled = styled.label`
         background-color: #e0e0e0;
         color: #000;
         cursor: pointer;
-    }
+    } 
 `
 
 const SubscriptContentStyled = styled.div`
@@ -44,19 +44,25 @@ const SubscriptContentStyled = styled.div`
 
 const SubscriptInputStyled = styled.div`
     display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
+    
     input {
-        margin-right: 1.5em;
-        padding: 0.7rem 0.5rem;
+        padding: 0.7em 0.5em;
+        margin-bottom: 1em;
         max-width: 250px;
         border-radius: 5px;
         font-size: 1rem;
     }
 
     @media(min-width: ${({ theme }) => theme.medium}) {
+        flex-direction: row;
         input {
+            margin-bottom: 0;
+            margin-right: 1em;
             max-width: 400px;
-            font-size: 1.4rem;
+            font-size: 1.2rem;
         }
     }
 `

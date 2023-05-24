@@ -128,9 +128,17 @@ const TabItem = styled(Link)`
         color: ${({ theme }) => theme.colors.hover};
     }
 
+    &:focus {
+        color: ${({ theme }) => theme.colors.hover};
+    }
+
     @media(min-width: ${({ theme }) => theme.medium}) {
 
         &:hover {
+            border-bottom: 5px solid ${({ theme }) => theme.colors.hover};
+        }
+        &:focus {
+            color: ${({ theme }) => theme.colors.hover};
             border-bottom: 5px solid ${({ theme }) => theme.colors.hover};
         }
     }

@@ -9,7 +9,7 @@ const GameCardInfo = ({game, onClose}) => {
             <GameInfoStyled onClick={(e) => {
                 e.stopPropagation()
             }}>
-                <GameImgStyled className="cardInfo" src={game.images.small} alt="" />
+                <GameImgStyled className="cardInfo" src={game.images.medium} alt="" />
                 <GameDescriptionStyled className="description block">
                     <CloseButton 
                         title="close"
