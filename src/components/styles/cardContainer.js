@@ -9,7 +9,7 @@ const CardContainerStyled = styled.div`
     display: grid;
     grid-template-columns: minmax(300px, 80%);
     grid-template-rows: repeat(3, 400px);
-    grid-gap: 0.5em;
+    grid-gap: 1em;
     justify-items: center;
     justify-content: center;
 

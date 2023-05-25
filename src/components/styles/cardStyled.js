@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
 const CardStyled = styled.div`
-    width: 90%;
+    max-width: 80%; 
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 1em;
-    opacity: 0.7;
+    padding: 1em 0;
+    opacity: 0.8;
 
     &:hover {
         opacity: 0.6;

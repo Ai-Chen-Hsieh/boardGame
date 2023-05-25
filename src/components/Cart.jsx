@@ -24,7 +24,10 @@ const Cart = ({onClose}) => {
                 </CartContainerStyled>
             ) : (
                 <CartContainerStyled>
-                    <CartStyled onClick={(e) => e.stopPropagation()}>
+                    <CartStyled onClick={(e) => {
+                        e.stopPropagation()
+                        onClose
+                        }}>
                         <CloseButton 
                             title="close"
                             onClick={onClose}/>

@@ -87,11 +87,12 @@ const Product = styled.div`
     align-items: center;
     flex-direction: column;
 
-    & > span {
+    span {
         flex: 1;
         display: flex; 
         align-items: center; 
         justify-content: center;
+        text-align: center;
         height: 80%;
     }
 
