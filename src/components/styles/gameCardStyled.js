@@ -84,6 +84,10 @@ const FavoriteButton = styled(FavoriteStyled)`
 `
 
 const RemoveButton = styled(ClosedStyled)`
+    width: 20%;
+    height: 20%;
+    max-width: 45px;
+    max-height: 45px;
     position: absolute;
     top: 3%;
     right: 3%;

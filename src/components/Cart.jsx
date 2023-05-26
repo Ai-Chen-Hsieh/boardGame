@@ -1,4 +1,3 @@
-// import { useContext } from "react";
 import { CartContainerStyled, CartStyled, ProductList, ProductTotalPriceContainer, ProductTotalPrice, ProductItem, Product, ProductImg, ProductAmount, IncreaseButton, DecreaseButton, OrderButton, CloseButton } from "./styles/cartStyled";
 import { useContext } from "react"; 
 import { CartContext } from "../context/cartInfo"
