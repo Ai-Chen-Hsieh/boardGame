@@ -31,8 +31,10 @@ const CubeIcon = styled(FaCube)`
 `
 
 const ShopBagIcon = styled(CiShoppingCart)`
-    width: 50px;
-    height: 50px;
+    width: 100%;
+    height: 100%;
+    max-width: 45px;
+    max-height: 45px;
     color: ${({ color }) => color || '#fff'};
     background-color: ${({ bg }) => bg || 'transparent'};
     padding: 7px;
@@ -47,8 +49,10 @@ const ShopBagIcon = styled(CiShoppingCart)`
 `
 
 const AccountIcon = styled(MdAccountCircle)`   
-    width: 45px;
-    height: 45px;
+    width: 100%;
+    height: 100%;
+    max-width: 40px;
+    max-height: 40px;
     color: ${({ color }) => color || "#000"};
 `
 

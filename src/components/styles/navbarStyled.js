@@ -148,7 +148,7 @@ const ToolKitStyled = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 1.8rem;
+    gap: 1em;
     flex: 1;
     @media(min-width: ${({ theme }) => theme.medium}) {
         justify-content: flex-end;
