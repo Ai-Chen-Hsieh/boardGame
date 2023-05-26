@@ -150,7 +150,6 @@ const ToolKitStyled = styled.div`
     align-items: center;
     gap: 1.8rem;
     flex: 1;
-
     @media(min-width: ${({ theme }) => theme.medium}) {
         justify-content: flex-end;
     }
@@ -160,9 +159,9 @@ const SearchBlockStyled = styled.div`
     display: inline-flex;
     align-items: center;
     height: 70px;
+    width: 100%;
     max-width: 400px;
-    margin: 0 20px;
-    flex: 1;
+    margin: 0 2em;
     border-radius: 35px;
     background-color: rgba(225, 225, 225, 0.6);
 

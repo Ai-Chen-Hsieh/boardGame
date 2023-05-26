@@ -122,8 +122,8 @@ const BiTimeFiveStyled = styled(BiTimeFive)`
 `
 // 共用基本按鈕樣式
 const BasicButton = css`
-    width: 50px;
-    height:45px;
+    width: 100%;
+    height: 100%;
     padding: 8px; 
     border-radius: 10px;
     background-color: ${({ theme }) => theme.button.primary};

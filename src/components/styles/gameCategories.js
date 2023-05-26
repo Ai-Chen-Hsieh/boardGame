@@ -7,12 +7,23 @@ const GameCategoriesCard = styled.div`
     font-size: 1.4rem;
     font-weight: 700;
     text-align: center;
+    cursor: default;
 
     &:hover {
         background-color: #ECB45F;
         border-color: #FFF1DB; 
         color: #fff;
         transition: all ease-in 0.2s;
+    }
+    
+    &:last-child {
+        color: rgba(0, 0, 0, 0.7);
+        border: 0;
+
+        &:hover {
+            background-color: #adadad;
+            color: #fff;
+        }
     }
 `
 

@@ -31,6 +31,7 @@ const GameCategories = ({listData, loading}) => {
                         </GameCategoriesCard>
                     )
                 })}
+                <GameCategoriesCard> see more</GameCategoriesCard>
                 </GameCategoriesStyled>
             )}
         </>
