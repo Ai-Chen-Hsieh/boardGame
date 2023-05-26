@@ -160,7 +160,7 @@ const SearchBlockStyled = styled.div`
     align-items: center;
     height: 70px;
     width: 100%;
-    max-width: 400px;
+    max-width: 350px;
     margin: 0 2em;
     border-radius: 35px;
     background-color: rgba(225, 225, 225, 0.6);
@@ -172,16 +172,32 @@ const SearchBlockStyled = styled.div`
 
 const SearchInput = styled.input`
     height: 35px;
-    width: calc(100% - 80px);
-    margin: 0 1rem;
+    width: calc(100% - 120px);
     background-color: transparent;
-    border-bottom: 2px solid #fff;
-    transform: scale(0);
+
+    &::placeholder { 
+        color: rgba(215, 215, 215, 0.8);
+        font-size: 1.1em;
+        letter-spacing: 1px;
+    }
+
+    :-ms-input-placeholder {
+        color: rgba(215, 215, 215, 0.8);
+        font-size: 1.1em;
+        letter-spacing: 1px;
+    }
+    ::-ms-input-placeholder {
+        color: rgba(215, 215, 215, 0.8);
+        font-size: 1.1em;
+        letter-spacing: 1px;
+    }
 
     &:focus {
-        transform: scale(1);
-        transition: transform 0.5s ease-in;
-        transform-origin: bottom left;
+        border-bottom: 2px solid #fff;
+    }
+
+    .error {
+        border-color: #red;
     }
 `
 

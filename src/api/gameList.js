@@ -21,5 +21,14 @@ const getGameCategory = async () => {
     }
 }
 
+const getSearchResult = async (word) => {
+    try {
+        const data = await axios.get(`https://api.boardgameatlas.com/api/search?name=${word}&pretty=true&limit=10&client_id=${key}`);
+        return data.data.games
+    } catch (error) {
+        console.error(error)
+        return []
+    }
+}
 
-export { getGameList, getGameCategory }
+export { getGameList, getGameCategory, getSearchResult }

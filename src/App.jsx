@@ -1,7 +1,7 @@
 import GlobalStyle from "./components/styles/globalStyled"
 import { ThemeProvider } from "styled-components"
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { MainPage, FavoritePage } from "./pages"
+import { MainPage, FavoritePage, SearchPage } from "./pages"
 import { MainContent } from "./components"
 import { CartProvider } from "./context/cartInfo"
 
@@ -38,6 +38,7 @@ function App() {
           <GlobalStyle />
             <Routes>
               <Route path="*" element={<MainPage />}>
+                <Route path="search/:word" element={<SearchPage />}></Route>
                 <Route path="favorite" element={<FavoritePage />}></Route>
                 <Route index element={<MainContent />} />
               </Route>

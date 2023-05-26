@@ -48,7 +48,6 @@ const InfoCollectionStyled = styled.div`
     flex-direction: column;
     h4 {
         margin-bottom:0.5em;
-        
     }    
 `
 const InfoRowStyled = styled.div`
