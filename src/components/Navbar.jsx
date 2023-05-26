@@ -25,7 +25,7 @@ const Navbar = () => {
 
         //若為空值跳出錯誤提示
         if(isEmpty){
-            toast.error(`search block cannot be empty`, {
+            toast.error(`search block cannot be blank`, {
                 theme: "light",
                 position: toast.POSITION.TOP_CENTER,
                 })
