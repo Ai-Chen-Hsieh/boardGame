@@ -10,7 +10,7 @@
 ![遊戲介紹](https://github.com/Ai-Chen-Hsieh/boardGame/blob/main/src/assets/footer.png)
 
 ### 專案入口
-專案入口 [入口](https://board-game-eight.vercel.app/)
+[查看專案請點我](https://board-game-eight.vercel.app/)
 
 ## project發想
 - 喜歡桌遊，所以以桌遊形象為主題的網站，練習以React開發&畫面切版，嘗試自行設計網站UI與簡單功能。
