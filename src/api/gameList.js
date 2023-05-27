@@ -4,7 +4,7 @@ const key = import.meta.env.VITE_API_KEY;
 
 const getGameList = async () => {
     try {
-        const data = await axios.get(`https://api.boardgameatlas.com/api/search?order_by=rank&ascending=false&pretty=true&limit=10&client_id=${key}`);
+        const data = await axios.get(`https://api.boardgameatlas.com/api/search?order_by=rank&ascending=false&pretty=true&limit=15&client_id=${key}`);
         return data.data.games
     } catch (error){
         console.error(error,'error')
