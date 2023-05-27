@@ -38,8 +38,6 @@ const Navbar = () => {
         inputRef.current.value = ''
     }
 
-    const mainContent = document.querySelector('.mainContent');
-
     return (
         <>
             <NavbarStyled>
@@ -88,7 +86,7 @@ const Navbar = () => {
             </NavbarStyled>
             {showCart && createPortal( <Cart 
                 onClose={() => setShowCart(false)}
-            /> ,mainContent)}
+            /> ,document.body)}
         </>
        
     )
