@@ -22,7 +22,7 @@ const Cart = ({onClose}) => {
                     </CartStyled>
                 </CartContainerStyled>
             ) : (
-                <CartContainerStyled>
+                <CartContainerStyled onClick={onClose}>
                     <CartStyled onClick={(e) => {
                         e.stopPropagation()
                         onClose
@@ -44,7 +44,7 @@ const Cart = ({onClose}) => {
                                                 <DecreaseButton className="decrease" onClick={() => decrease(product)}></DecreaseButton>
                                             </ProductAmount>
                                             <span className="price">
-                                                $ {product.price * product.quantity}
+                                                $ {Math.round(product.price * product.quantity *100) /100}
                                             </span>
                                         </Product>
                                     </ProductItem>

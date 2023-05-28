@@ -9,7 +9,7 @@ export const CartProvider = ({ children }) => {
     function addToCart (item) {
         //判斷是否已存在購物車
         const hasInCart = cartItem.find(product => product.id === item.id);
-
+        
         //已存在購物車，數量加一
         if(hasInCart){
             const newProducts = cartItem.map(product => {
@@ -44,7 +44,6 @@ export const CartProvider = ({ children }) => {
     //購物車內商品數量增加一
     function increase (item) {
         const newProducts = cartItem.map(product => {
-            console.log(product.id, item.id)
             if(product.id === item.id){
                 return {
                     ...product,
