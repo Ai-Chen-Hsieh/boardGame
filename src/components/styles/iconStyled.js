@@ -5,7 +5,7 @@ import { CiShoppingCart } from "react-icons/ci"
 import { BsPeopleFill } from "react-icons/bs"
 import { BiTimeFive } from "react-icons/bi"
 import { MdAccountCircle } from "react-icons/md"
-import { IoIosAddCircleOutline } from "react-icons/Io"
+import { IoIosAddCircleOutline } from "react-icons/io"
 import { GoSearch } from "react-icons/go"
 import { AiOutlineClose } from "react-icons/ai"
 
