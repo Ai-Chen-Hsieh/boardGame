@@ -14,8 +14,11 @@ const getGameList = async () => {
 const getGameCategory = async () => {
     try{
         const data = await axios.get(`https://api.boardgameatlas.com/api/game/categories?pretty=true&client_id=${key}`);
-        const TopData = data.data.categories.slice(0, 20);
-        return TopData
+        const category = data.data.categories.slice(0, 6);
+        const firstCategoryGameResult = await axios.get(`https://api.boardgameatlas.com/api/search?name=${category[0].name}&pretty=true&limit=10&client_id=${key}`);
+        const firstCategoryGame = firstCategoryGameResult.data.games;
+        const result = {category, firstCategoryGame};
+        return result
     } catch (error) {
         console.error(error)
     }
@@ -24,7 +27,6 @@ const getGameCategory = async () => {
 const getSearchResult = async (word) => {
     try {
         const data = await axios.get(`https://api.boardgameatlas.com/api/search?name=${word}&pretty=true&limit=10&client_id=${key}`);
-        console.log(data.data)
         return data.data.games
     } catch (error) {
         console.error(error)

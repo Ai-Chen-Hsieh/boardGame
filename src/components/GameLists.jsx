@@ -1,12 +1,9 @@
-import { useState,useContext } from "react";
+import { useState } from "react";
 import { createPortal } from "react-dom";
 import ClipLoader from "react-spinners/ClipLoader";
 import { GameListStyled } from "./styles/gameListsStyled" 
 import { GameCard, GameCardInfo } from "./";
 import { LoadingMessageStyled } from "./styles/utilityStyled"
-import { CartContext } from "../context/cartInfo"
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 /**
  * 遊戲清單
@@ -18,7 +15,6 @@ import 'react-toastify/dist/ReactToastify.css';
 const GameLists = ({ listData, loading, onAddToFavorite, onRemoveFromFavorite }) => {
     const [ showDescription, setShowDescription ] = useState(false);
     const [ gameInfo, setGameInfo ] = useState({});
-    const { addToCart } = useContext(CartContext)
 
     //處理遊戲詳細介紹
     function handleShowDescription ({game}) {
@@ -27,15 +23,6 @@ const GameLists = ({ listData, loading, onAddToFavorite, onRemoveFromFavorite })
 
         //開啟遊戲modal
         setShowDescription(() => true)
-    }
-
-    //處理加入購物車
-    function handleAddToCart({item}) {
-        addToCart(item);
-        toast.success(`【${item.name}】have been added to the shopping cart`, {
-            theme: "light",
-            position: toast.POSITION.TOP_CENTER,
-            })
     }
 
     return(
@@ -58,17 +45,15 @@ const GameLists = ({ listData, loading, onAddToFavorite, onRemoveFromFavorite })
                                     key={game.id} 
                                     game={game} 
                                     onAddToFavorite={() => {
-                                        onAddToFavorite?.({id: game.id})
+                                        onAddToFavorite?.({target: game})
                                     }}
                                     onRemoveFromFavorite={() => {
                                         onRemoveFromFavorite?.({id: game.id, name: game.name})
                                     }}
-                                    onAddToCart={handleAddToCart}
                                     onShowDescription={handleShowDescription}
                                 />
                             )
                         })}      
-                        <ToastContainer autoClose={2000}/>
                     </GameListStyled>
                     {showDescription && createPortal( <GameCardInfo 
                         game={gameInfo}

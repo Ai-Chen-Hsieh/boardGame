@@ -1,7 +1,10 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { MainContentStyled, TitleStyled } from "./styles/mainContentStyled"
+import { SearchBlockStyled, SearchInput } from "./styles/searchStyled"
+import { SlMagnifierIcon } from "./styles/iconStyled"
 import { GameLists, GameCategories, CardContainer, Card, SubscriptBanner } from "../components/index"
-import { getGameList, getGameCategory } from "../api/gameList" 
+import { getGameList, getGameCategory, getSearchResult } from "../api/gameList" 
 import img_chess from "../assets/img_chess.jpg";
 import img_game from "../assets/img_game.jpg"
 import img_people from "../assets/img_people.jpg"
@@ -20,75 +23,129 @@ import { dummyCategoryList } from "../dummyData/dummyGameCategories"
 const MainContent = () => {
     const [ list, setList ] = useState([]);
     const [ categories, setCategories ] = useState([]);
+    const [ categoryGame, setCategoryGame ] = useState([]);
     const [ isLoading, setIsLoading ] = useState(true);
     const [ isCategoryLoading, setIsCategoryLoading ] = useState(true);
 
+    const navigate = useNavigate();
+    const inputRef = useRef(null);
+
     //處理加入收藏
-    function handleAddToFavorite ({id}) {
+    function handleAddToFavorite ({target}) {
+
         //收藏遊戲清單，若有清單則getItem否則為空陣列
         const storageGame = JSON.parse(localStorage.getItem('favorite_game')) || [];
-        
-        //找到點擊的遊戲
-        const game = list.find(game => game.id === id);
 
         //若已經在收藏哩，跳"已收藏"通知；否則加入收藏
-        if(storageGame.some(game => game.id === id)){
+        if(storageGame.some(game => game.id === target.id)){
             return (
-                toast.error(`【${game.name}】has already in favorite`, {
+                toast.error(`【${target.name}】has already in favorite`, {
                     position: toast.POSITION.TOP_CENTER
                 })
             )
         } else {
-            toast.success(`Add 【${game.name}】 into favorite`, {
+            toast.success(`Add 【${target.name}】 into favorite`, {
                 theme: "dark",
                 position: toast.POSITION.TOP_CENTER,
                 })
         }
 
         //將遊戲存入localStorage
-        storageGame.push(game);
+        storageGame.push(target);
         localStorage.setItem('favorite_game', JSON.stringify(storageGame))
     }
 
-    // 呼叫game list API
+    //處理搜尋
+    function handleSearch () {
+        const isEmpty = inputRef.current.value.trim().length === 0;
+
+        //若為空值跳出錯誤提示
+        if(isEmpty){
+            toast.error(`search block cannot be blank`, {
+                theme: "light",
+                position: toast.POSITION.TOP_CENTER,
+                })
+            return 
+        }
+
+        navigate(`/search/${inputRef.current.value}`)
+
+        //清空搜尋框內容
+        inputRef.current.value = ''
+    }
+
+    //處理類別標籤
+    function handleCategoryGame (category) {
+        const categoryGames = async () => {
+            try{
+                const result = await getSearchResult(category);
+                setCategoryGame(() => result)
+            } catch(error){
+                console.error(error)
+            }
+        }
+        categoryGames()
+    }
+
+    // 呼叫game list & categoryList API
     useEffect(()=>{
         const result = async () => {
             try {
-                const gameList = await getGameList() || generateDummyList;
+                const [gameList, categoriesList]  = await Promise.all([
+                    getGameList() || generateDummyList,
+                    getGameCategory() || dummyCategoryList
+                ])
+                const { category, firstCategoryGame } = categoriesList;
+
                 setList(() => gameList);
+                
+                setCategories(() => category);
+                setCategoryGame(() => firstCategoryGame)
                 setIsLoading(() => false);
-            } catch (error) {
-                console.log(error, 'get list failed')
-            }
-        }
-        result()
-    },[])
-
-    //呼叫category game API
-    useEffect(()=> {
-        const result = async () => {
-            try{
-                const categoriesList = await getGameCategory() || dummyCategoryList;
-                setCategories(() => categoriesList);
                 setIsCategoryLoading(()=> false)
-
             } catch (error) {
-                console.log(error, 'get game category fail')
+                console.log(error, 'get list or game category failed')
             }
         }
         result()
     },[])
+
 
     return (
         <MainContentStyled className="mainContent">
-            <TitleStyled>Popular</TitleStyled>
+            <SearchBlockStyled>
+                <label htmlFor="search">
+                    <SlMagnifierIcon title="search" onClick={handleSearch}/>
+                </label>
+                <SearchInput 
+                    type="text"
+                    id="search" 
+                    placeholder="Search store" 
+                    ref={inputRef}
+                    onClick={e => e.stopPropagation()}
+                    onKeyDown={e => {
+                        if(e.key === 'Enter'){
+                            handleSearch()
+                        }
+                    }}
+                    />
+            </SearchBlockStyled>
+            <TitleStyled>Popular Games</TitleStyled>
             <GameLists 
                 listData={list} 
                 loading={isLoading}
                 onAddToFavorite={handleAddToFavorite}
             />
             <TitleStyled>Categories</TitleStyled>
-            <GameCategories listData={categories} loading={isCategoryLoading}/>
+            <GameCategories 
+                listData={categories} 
+                loading={isCategoryLoading}
+                onSearchCategory={handleCategoryGame}>
+                <GameLists 
+                    listData={categoryGame} 
+                    onAddToFavorite={handleAddToFavorite}
+                />
+            </GameCategories>
             <CardContainer>
                 <Card img={img_chess}>
                     <span>Creative</span>

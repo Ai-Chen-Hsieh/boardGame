@@ -1,10 +1,9 @@
 import styled from "styled-components";
-import { Button } from "./buttonStyled";
 import { FavoriteStyled, ClosedStyled } from "./iconStyled"
 
 const GameCardStyled = styled.div`
+    width: 100%;
     padding: 0.7em 0.8em;
-    margin-top: 20px;
     display: flex;
     flex-direction: column;
     border: 4px solid #e4e4e4;
@@ -12,100 +11,79 @@ const GameCardStyled = styled.div`
     position: relative;
 
     img {
-        width: 40%;
+        width: 90%;
+        aspect-ratio: 1 / 1;
+        object-fit: contain;
         align-self: center;
     }
 
+    &:hover {
+        background-color: #E7E7E7;
+        cursor: pointer;
+    }
+
     @media(min-width: ${({ theme }) => theme.mobile}) {
-        padding: 0 0.8em;
-        flex-direction: row;
+        padding: 1em 0.8em;
     }
 `
 
 const CardInfoStyled = styled.div`
-    width: 60%;
     display: flex;
     flex-direction: column;
     margin: 1em auto;
 
     h4{
-        font-size: 1.6rem;
-        margin-bottom: 0.5em;
+        font-size: 1.4rem;
     }
 
     @media(min-width: ${({ theme }) => theme.mobile}) {
-        width: 50%;
-        margin: 45px auto 5px auto;
 
         h4{
-            font-size: 1.4rem;
+            font-size: 1.2rem;
         }
     }
 
 `
 
-const InfoCollectionStyled = styled.div`
-    flex: 1;
-    display: flex;
-    flex-direction: column;    
-    h4 {
-        margin-bottom:0.5em;
-    }    
-`
-const InfoRowStyled = styled.div`
-    display: flex;
-    align-items: center;
-    font-size: 1.2rem;
-    margin: 0.3em;
-    gap: 0.5em;
-
-    @media(min-width: ${({ theme }) => theme.mobile}) {
-        font-size: 1rem;
-    }
-`
-
-const ProductInfoStyled = styled(Button)`
-`
-
-const ButtonCollectionStyled = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1em;
-    margin-top: 0.8em;
-
-    @media(min-width: ${({ theme }) => theme.mobile}) {
-        margin: auto;
-    }
-`
-
 const FavoriteButton = styled(FavoriteStyled)`
     width: 20%;
     height: 20%;
-    max-width: 45px;
-    max-height: 45px;
+    max-width: 30px;
+    max-height: 30px;
     position: absolute;
     top: 3%;
     right: 3%;
+    background-color: transparent;
+    color: transparent;
+
+    ${GameCardStyled}:hover &{
+        color: #fff;
+        background-color: #727171;
+    }
 `
 
 const RemoveButton = styled(ClosedStyled)`
     width: 20%;
     height: 20%;
-    max-width: 45px;
-    max-height: 45px;
+    max-width: 30px;
+    max-height: 30px;
+    padding: 5px;
     position: absolute;
     top: 3%;
     right: 3%;
+    background-color: transparent;
+    color: transparent;
+
+    ${GameCardStyled}:hover &{
+        color: #000;
+        background-color: #FEF2C8;
+    }
+   
 `
 
 export { 
     GameCardStyled, 
     CardInfoStyled, 
-    ProductInfoStyled, 
-    InfoCollectionStyled, 
-    InfoRowStyled,
-    ButtonCollectionStyled,
     FavoriteButton,
     RemoveButton
  }

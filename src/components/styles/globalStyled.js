@@ -39,6 +39,10 @@ const GlobalStyle = createGlobalStyle`
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
 	}
 
+	#root {
+		height: 100%;
+	}
+
 	ol, ul {
 		list-style: none;
 	}
@@ -87,6 +91,9 @@ const GlobalStyle = createGlobalStyle`
 		--footer-background: #3A6190;
 	}
 	
+	.container {
+		border: 2px solid red;
+	}
 `
 
 export default GlobalStyle

@@ -1,4 +1,4 @@
-import { GameCategoriesStyled, GameCategoriesCard } from "./styles/gameCategories"
+import { GameCategoriesStyled, GameCategoriesTab, GameCategoryContainer, GameCategoriesList, Tab } from "./styles/gameCategories"
 import { LoadingMessageStyled } from "./styles/utilityStyled"
 import ClipLoader from "react-spinners/ClipLoader";
 
@@ -10,29 +10,51 @@ import ClipLoader from "react-spinners/ClipLoader";
  * @returns 
  */
 
-const GameCategories = ({listData, loading}) => {
+const GameCategories = ({listData, loading, onSearchCategory, children}) => {
 
     return (
         <>
             {loading ? (
                 <LoadingMessageStyled>
-                <ClipLoader 
-                    size={100}
-                    color="#666740"
-                />
-                <span>Loading...</span>
-            </LoadingMessageStyled>
+                    <ClipLoader 
+                        size={100}
+                        color="#666740"
+                    />
+                    <span>Loading...</span>
+                </LoadingMessageStyled>
             ) : (
-                <GameCategoriesStyled>
-                {listData.map((category) => {
-                    return(
-                        <GameCategoriesCard key={category.id}>
-                            <span>{category.name}</span>    
-                        </GameCategoriesCard>
-                    )
-                })}
-                <GameCategoriesCard> see more</GameCategoriesCard>
-                </GameCategoriesStyled>
+                <GameCategoryContainer>
+                    <GameCategoriesStyled>
+                        {listData.map((category, index) => {
+                            return(
+                                <Tab key={category.id} >
+                                    <input 
+                                        type="radio" 
+                                        name="category"
+                                        id={category.id}
+                                        defaultChecked={index === 0}
+                                        value={category.name}
+                                        onClick={e=> {
+                                            e.stopPropagation()}}
+                                        />
+                                    <GameCategoriesTab 
+                                        htmlFor={category.id}
+                                        onClick={()=>{
+                                            onSearchCategory(category.name)
+                                        }}
+                                        >
+                                        {category.name}    
+                                    </GameCategoriesTab>
+
+                                </Tab>
+                               
+                            )
+                        })}
+                    </GameCategoriesStyled>
+                    <GameCategoriesList>
+                        {children}
+                    </GameCategoriesList>
+                </GameCategoryContainer>
             )}
         </>
         

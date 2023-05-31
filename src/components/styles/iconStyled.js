@@ -4,9 +4,11 @@ import { FaCube, FaInstagram, FaFacebook, FaYoutube, FaDollarSign } from "react-
 import { CiShoppingCart } from "react-icons/ci"
 import { BsPeopleFill } from "react-icons/bs"
 import { BiTimeFive } from "react-icons/bi"
-import { MdOutlineFavoriteBorder, MdAccountCircle } from "react-icons/md"
+import { MdAccountCircle } from "react-icons/md"
+import { IoIosAddCircleOutline } from "react-icons/Io"
 import { GoSearch } from "react-icons/go"
 import { AiOutlineClose } from "react-icons/ai"
+
 
 const Logo = styled(Link)`
     display: flex;
@@ -57,8 +59,8 @@ const AccountIcon = styled(MdAccountCircle)`
 `
 
 const SlMagnifierIcon = styled(GoSearch)`
-    width: 60px;
-    height: 60px;
+    width:40px;
+    height: 40px;
     color: #fff;
     padding: 10px;
     margin: 8px;
@@ -68,7 +70,7 @@ const SlMagnifierIcon = styled(GoSearch)`
 
     &:hover {
         cursor: pointer;
-        background-color: rgba(225, 225, 225, 0.4);
+        background-color: rgba(0, 0, 0,0.4);
         transition: background-color ease-in .15s;
     }
 `
@@ -128,26 +130,16 @@ const BiTimeFiveStyled = styled(BiTimeFive)`
 const BasicButton = css`
     width: 100%;
     height: 100%;
-    padding: 8px; 
-    border-radius: 10px;
+    border-radius: 50%;
     background-color: ${({ theme }) => theme.button.primary};
-    align-self: end;
-
-    &:hover {
-        opacity: 0.5;
-        cursor: pointer;
-        background-color: ${({ theme }) => theme.button.hover};
-    }
 `
 
-const FavoriteStyled = styled(MdOutlineFavoriteBorder)`
+const FavoriteStyled = styled(IoIosAddCircleOutline)`
     ${BasicButton}
 `
 
 const ClosedStyled = styled(AiOutlineClose)`
     ${BasicButton} {
-        border-radius: 50%;
-        background-color: #FEF2C8;
     }
 
 `

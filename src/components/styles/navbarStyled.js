@@ -5,18 +5,19 @@ import styled from "styled-components";
 // navbar style
 const NavbarStyled = styled.nav`
     height: 100px;
+    width: 100%;
     background-color: ${({ theme }) => theme.background.navbar};
     box-shadow: 2px 0 4px 5px rgba(0, 0, 0, 0.3);
-    padding: 0 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    position: relative;
+    position: fixed;
     z-index: 2;
 
     @media(min-width: ${({ theme }) => theme.medium}) {
         flex-direction: row;
+        padding: 0 20px;
     }
 `
 
@@ -37,12 +38,9 @@ const ToggleHamburger = styled.input`
             position: absolute;
             top: 100px;
             z-index: 2;
-            padding-bottom: 1.2rem;
-            padding-right: 1.2rem;
         }
     }
 
-    
 `
 
 const Hamburger = styled.label`  
@@ -86,10 +84,11 @@ const HamburgerLabel = styled.span`
 `
 
 const Nav = styled.div`
+    display: flex;
     position: absolute;
     top:100%;
     transform: scale(1, 0);
-    
+
     @media(min-width: ${({ theme }) => theme.medium}) {
         all: unset;
         flex: 1;
@@ -100,7 +99,6 @@ const Nav = styled.div`
 const TabStyled = styled.div`
     height: 100px;
     color: ${({ theme }) => theme.colors.main};
-    margin-left: 4.6rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -108,14 +106,12 @@ const TabStyled = styled.div`
     flex: 1;
 
     @media(min-width: ${({ theme }) => theme.medium}) {
-        justify-content: flex-start;
+        margin-left: 4em;
     }
 `
 
 const TabItem = styled(Link)`
-    display: inline-block;
     width: 120px;
-    height: 100px;
     font-size: 1.6rem;
     font-weight: 500;
     text-align: center;
@@ -133,6 +129,7 @@ const TabItem = styled(Link)`
     }
 
     @media(min-width: ${({ theme }) => theme.medium}) {
+        margin-right: auto;
 
         &:hover {
             border-bottom: 5px solid ${({ theme }) => theme.colors.hover};
@@ -144,72 +141,12 @@ const TabItem = styled(Link)`
     }
 `
 
-const ToolKitStyled = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1em;
-    flex: 1;
-    @media(min-width: ${({ theme }) => theme.medium}) {
-        justify-content: flex-end;
-    }
-`
-
-const SearchBlockStyled = styled.div`
-    display: inline-flex;
-    align-items: center;
-    height: 70px;
-    width: 100%;
-    max-width: 350px;
-    margin: 0 2em;
-    border-radius: 35px;
-    background-color: rgba(225, 225, 225, 0.6);
-
-    @media(min-width: ${({ theme }) => theme.medium}) {
-        flex: auto;
-    }
-`
-
-const SearchInput = styled.input`
-    height: 35px;
-    width: calc(100% - 120px);
-    background-color: transparent;
-
-    &::placeholder { 
-        color: rgba(215, 215, 215, 0.8);
-        font-size: 1.1em;
-        letter-spacing: 1px;
-    }
-
-    :-ms-input-placeholder {
-        color: rgba(215, 215, 215, 0.8);
-        font-size: 1.1em;
-        letter-spacing: 1px;
-    }
-    ::-ms-input-placeholder {
-        color: rgba(215, 215, 215, 0.8);
-        font-size: 1.1em;
-        letter-spacing: 1px;
-    }
-
-    &:focus {
-        border-bottom: 2px solid #fff;
-    }
-
-    .error {
-        border-color: #red;
-    }
-`
-
 export { 
     NavbarStyled, 
     TabStyled, 
     TabItem, 
     Nav, 
-    ToolKitStyled, 
-    SearchBlockStyled, 
     Hamburger, 
     HamburgerLabel, 
     ToggleHamburger,
-    SearchInput
  }
