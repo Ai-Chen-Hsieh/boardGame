@@ -59,6 +59,7 @@ const SearchPage = () => {
     return(
         <>
         {isLoading ? (
+            <SearchPageStyled>
                 <LoadingMessageStyled>
                     <ClipLoader 
                         size={100}
@@ -66,7 +67,7 @@ const SearchPage = () => {
                     />
                     <span>Loading...</span>
                 </LoadingMessageStyled>
-                
+            </SearchPageStyled>
             ) : (
             <SearchPageStyled>
                 <SearchBlockStyled>
