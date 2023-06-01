@@ -110,7 +110,6 @@ const MainContent = () => {
         result()
     },[])
 
-
     return (
         <MainContentStyled className="mainContent">
             <SearchBlockStyled>
