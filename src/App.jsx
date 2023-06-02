@@ -14,6 +14,7 @@ function App() {
       hover: '#FCFF5C',
       socialIcon: '#0B9890',
       secondary: '#1E385F',
+      price: '#a9a9a9'
     },
     button: {
       primary: '#FFE4CA',

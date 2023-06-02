@@ -23,6 +23,11 @@ const GameCard = ({game, onAddToFavorite, onRemoveFromFavorite, onShowDescriptio
                             }} />
                         )}
                         <h4>{game.name}</h4>
+                        {game.price > 0 ? (
+                            <p>$ {game.price}</p>
+                        ) : (
+                            <p>free</p>
+                        )}
                     </CardInfoStyled>
             </GameCardStyled>
         </>

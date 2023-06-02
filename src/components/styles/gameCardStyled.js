@@ -35,6 +35,11 @@ const CardInfoStyled = styled.div`
     h4{
         font-size: 1.4rem;
     }
+    p {
+        font-weight: 700;
+        font-size: clamp(1rem, 1.5vw, 1.2rem); 
+        color: ${({ theme }) => theme.colors.price}
+    }
 
     @media(min-width: ${({ theme }) => theme.mobile}) {
 
