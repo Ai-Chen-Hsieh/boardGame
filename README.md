@@ -1,7 +1,7 @@
 # 桌遊網站
 
 ## 網站畫面
-![網站畫面](https://github.com/Ai-Chen-Hsieh/boardGame/blob/main/src/assets/homePage.png)
+
 
 ![購物車](https://github.com/Ai-Chen-Hsieh/boardGame/blob/main/src/assets/shoppingCart.png)
 
