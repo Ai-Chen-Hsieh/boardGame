@@ -4,7 +4,7 @@ import ClipLoader from "react-spinners/ClipLoader";
 import { SearchBlockStyled, SearchInput } from "../components/styles/searchStyled"
 import { LoadingMessageStyled } from "../components/styles/utilityStyled"
 import { SearchPageStyled } from "./styles/searchPageStyled"
-import { SlMagnifierIcon } from "../components/styles/iconStyled"
+import { SlMagnifierIcon, GoBackButton, GoBackIcon } from "../components/styles/iconStyled"
 import { GameLists } from "../components"
 import { getSearchResult } from "../api/gameList"
 import { ToastContainer, toast } from 'react-toastify';
@@ -70,6 +70,10 @@ const SearchPage = () => {
             </SearchPageStyled>
             ) : (
             <SearchPageStyled>
+                <GoBackButton to="/">
+                    <GoBackIcon />
+                    <h3>back to home page</h3>
+                </ GoBackButton>
                 <SearchBlockStyled>
                     <label htmlFor="search">
                         <SlMagnifierIcon title="search" onClick={handleSearch}/>

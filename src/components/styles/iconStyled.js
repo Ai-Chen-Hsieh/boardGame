@@ -7,7 +7,7 @@ import { BiTimeFive } from "react-icons/bi"
 import { MdAccountCircle } from "react-icons/md"
 import { IoIosAddCircleOutline } from "react-icons/io"
 import { GoSearch } from "react-icons/go"
-import { AiOutlineClose } from "react-icons/ai"
+import { AiOutlineClose, AiOutlineArrowLeft } from "react-icons/ai"
 
 
 const Logo = styled(Link)`
@@ -126,6 +126,35 @@ const BiTimeFiveStyled = styled(BiTimeFive)`
     width: 20px;
     height:20px;
 `
+
+const GoBackButton = styled(Link)`
+    display: flex;
+    width: 60%;
+    max-width: 300px; 
+    text-decoration: none;   
+    margin: 1em 0 0 1.2em;
+    h3 {
+        font-size: 1.2rem;
+    }
+`
+
+const GoBackIcon = styled(AiOutlineArrowLeft)`
+    width: 60%;
+    height: 60%;
+    max-width: 40px;
+    max-height: 40px;
+    padding: 5px;
+    align-self: center;
+    color: ${({ theme }) => theme.colors.secondary};
+
+    ${GoBackButton}:hover & {
+        border-radius: 50%;
+        background-color: rgba(0, 0, 0, 0.6);
+        color: ${({ theme }) => theme.colors.main};
+    }
+`
+
+
 // 共用基本按鈕樣式
 const BasicButton = css`
     width: 100%;
@@ -157,5 +186,7 @@ export {
     FaDollarSignStyled,
     BiTimeFiveStyled,
     FavoriteStyled,
-    ClosedStyled
+    ClosedStyled,
+    GoBackIcon,
+    GoBackButton
  }

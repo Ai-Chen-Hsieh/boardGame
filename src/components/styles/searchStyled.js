@@ -1,11 +1,9 @@
 import styled from "styled-components"
 
 const SearchBlockStyled = styled.div`
-    display: inline-flex;
-    align-items: center;
     height: 50px;
-    width: 100%;
-    margin-top: 1.5em;
+    max-width: 100%;
+    margin: 1.5em 1em;
     border-radius: 35px;
     background-color: rgba(120, 120, 120, 0.6);
 
