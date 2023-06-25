@@ -65,7 +65,7 @@ const ProductList = styled.ul`
 `
 
 const ProductImg = styled.img`
-    aspect-ratio: 4 / 3;
+    max-width: 100%;
 
 `
 
