@@ -37,11 +37,16 @@ const CartStyled = styled.div`
 
     & > h4 {
         letter-spacing: 2px;
-      color: #fff;  
+        color: #fff;
+        font-size: 1.6rem;  
     }
 
     @media(min-width: ${({ theme }) => theme.mobile}) {
         max-width: 900px;
+
+        & > h4 {
+            font-size: 2.2rem;
+        }
     }
 `
 
@@ -66,11 +71,10 @@ const ProductList = styled.ul`
 
 const ProductImg = styled.img`
     max-width: 100%;
-
 `
 
 const ProductItem = styled.li`
-    height: 30%;
+    height: 35%;
     display: flex;
     margin: 1em;
     padding: 1em;
@@ -194,11 +198,16 @@ const OrderButton = styled(Button)`
 `
 
 const CloseButton = styled(ClosedStyled)`
-    width: 40px;
-    height: 40px;
+    max-width: 35px;
+    max-height: 35px;
+    padding: 5px;
     position: absolute;
     top: 2%;
     right: 2%;
+    &:hover {
+        opacity: 0.7;
+        cursor: pointer;
+    }
 `
 
 export {
